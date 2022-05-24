@@ -1,46 +1,92 @@
- const addBtn = document.querySelector('#add-btn');
-  const inputTitle = document.querySelector('#input-title');
-  const inputAuthor = document.querySelector('#input-author');
-  const form = document.querySelector('#form');
+const addBtn = document.querySelector("#add-btn");
+const inputTitle = document.querySelector("#input-title");
+const inputAuthor = document.querySelector("#input-author");
+const form = document.querySelector("#form");
+const booksContainer = document.getElementById("books-inner-container");
+const removeBtn = document.querySelector(".remove-book")
+let books = [];
 
 class Book {
-  constructor(title, author){
-     this.title = title;
-     this.author = author;
-  }
-  
-  addBook(book){
-   const books = document.getElementById('books-inner-container');
-
-  const bookElement = document.createElement('li');
-  bookElement.setAttribute('id', book.title);
-  const bookElMarkup = `
-    <div class="content-container">
-    <p>${book.title}</p>
-    <p>${book.author}</p>
-    </div>
-    <button class="remove-book">Remove</button>
-  `;
-  bookElement.innerHTML = bookElMarkup;
-  books.appendChild(bookElement);
+  constructor(title, author, books) {
+    this.title = title;
+    this.author = author;
+    this.books = books;
   }
 
-  removeBook(){
-    delete this.book;
+  removeBook() {
+    booksContainer.addEventListener('click', (e) => {
+      if (e.target.classList.contains('remove-book') || e.target.parentElement.classList.contains('remove-book')) {
+        const bookId = e.target.closest('li').id;
+        this.deleteBook(bookId);
+      }
+    });
   }
-}
 
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  let books = [];
-  const title = inputTitle.value;
-  const author = inputAuthor.value;
-  if (inputTitle.value !== '' && inputAuthor.value !== '') {
-     const book = new Book(title, author);
-    books.push(book);
+  deleteBook (id){
+    console.log("ID", id)
+    books = books.filter((book) => book.id !== parseInt(id));
     localStorage.setItem('books', JSON.stringify(books));
-    book.addBook(book);
-    inputTitle.value = '';
-    inputAuthor.value = '';
+    document.getElementById(id).remove();
   }
-});
+
+  getBooks(){
+    let data = JSON.parse(localStorage.getItem('books')) 
+    if (data) {
+      data.map((book) => {
+        const bookElement = document.createElement('li');
+        bookElement.setAttribute('id', book.id);
+        const bookElMarkup = `
+          <div class="content-container">
+          <p>${book.title}</p>
+          <p>${book.author}</p>
+          </div>
+          <button class="remove-book">Remove</button>
+        `;
+        bookElement.innerHTML = bookElMarkup;
+        booksContainer.appendChild(bookElement);
+      });
+    }
+  }
+
+  addBook() {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      this.title = inputTitle.value;
+      this.author = inputAuthor.value;
+      if (inputTitle.value === '' || inputAuthor.value === '') {
+        alert("Input Fields Should not be empty")
+      } else {
+        const book = {
+          id: new Date().getTime(),
+          title: inputTitle.value,
+          author: inputAuthor.value,
+        };
+        console.log("bk", book.title)
+        books.push(book);
+        localStorage.setItem('books', JSON.stringify(books));
+        const bookElement = document.createElement("li");
+        bookElement.setAttribute("id", book.id);
+        const bookElMarkup = `
+        <div class="content-container">
+        <p>${book.title}</p>
+        <p>${book.author}</p>
+        </div>
+        <button class="remove-book">Remove</button>
+      `;
+        bookElement.innerHTML = bookElMarkup;
+        booksContainer.appendChild(bookElement);
+        inputTitle.value = '';
+        inputAuthor.value = '';
+      }
+    });
+  }
+
+}
+let newBook = new Book(inputTitle, inputAuthor, books);
+console.log(newBook)
+newBook.addBook();
+newBook.getBooks();
+newBook.removeBook();
+
+
+

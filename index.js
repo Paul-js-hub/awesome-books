@@ -1,5 +1,5 @@
 let booksArray = JSON.parse(localStorage.getItem('booksArray')) || [];
-
+// true || false --> true
 const books = document.getElementById('books-inner-container');
 const addBtn = document.querySelector('#add-btn');
 const inputTitle = document.querySelector('#input-title');
@@ -10,7 +10,9 @@ form.addEventListener('submit', (e) => {
   e.preventDefault();
   booksArray.title = inputTitle.value;
   booksArray.author = inputAuthor.value;
-  if (inputTitle.value !== '' && inputAuthor.value !== '') {
+  if (inputTitle.value === '' || inputAuthor.value === '') {
+    alert("Input Fields Should not be empty")
+  } else {
     const book = {
       id: new Date().getTime(),
       title: inputTitle.value,
