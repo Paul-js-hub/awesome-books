@@ -61,11 +61,8 @@ class Book {
   }
 
   deleteBook = (id) => {
-    let books = this.books
-    let newBooks = books.filter((book) => {
-      return  book.id !== parseInt(id)
-    });
-    let data = JSON.stringify(newBooks)
+    let books =  this.books.filter((book) => book.id !== parseInt(id));
+    let data = JSON.stringify(books)
     localStorage.setItem('books', data);
     document.getElementById(id).remove();
   }
@@ -74,6 +71,7 @@ class Book {
     booksContainer.addEventListener('click', (e) => {
       if (e.target.classList.contains('remove-book') || e.target.parentElement.classList.contains('remove-book')) {
         const bookId = e.target.closest('li').id;
+        console.log("BOOKID", bookId)
         this.deleteBook(bookId);
       }
     });
