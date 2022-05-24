@@ -51,8 +51,8 @@ class Book {
   addBook() {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      this.title = inputTitle.value;
-      this.author = inputAuthor.value;
+      books.title = inputTitle.value;
+      books.author = inputAuthor.value;
       if (inputTitle.value === '' || inputAuthor.value === '') {
         alert("Input Fields Should not be empty")
       } else {
@@ -61,7 +61,6 @@ class Book {
           title: inputTitle.value,
           author: inputAuthor.value,
         };
-        console.log("bk", book.title)
         books.push(book);
         localStorage.setItem('books', JSON.stringify(books));
         const bookElement = document.createElement("li");
