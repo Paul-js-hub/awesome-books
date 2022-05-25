@@ -11,7 +11,7 @@ form.addEventListener('submit', (e) => {
   booksArray.title = inputTitle.value;
   booksArray.author = inputAuthor.value;
   if (inputTitle.value === '' || inputAuthor.value === '') {
-    alert("Input Fields Should not be empty")
+    alert('Input Fields Should not be empty');
   } else {
     const book = {
       id: new Date().getTime(),

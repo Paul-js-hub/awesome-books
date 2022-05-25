@@ -4,7 +4,6 @@ const inputAuthor = document.querySelector('#input-author');
 const form = document.querySelector('#form');
 const booksContainer = document.getElementById('books-inner-container');
 const removeBtn = document.querySelector('.remove-book');
-//let books = JSON.parse(localStorage.getItem('books')) || [];
 
 class Book {
   constructor(title, author, books) {
@@ -20,10 +19,11 @@ class Book {
         bookElement.setAttribute('id', book.id);
         const bookElMarkup = `
           <div class="content-container">
-          <p>${book.title}</p>
+          <p>"${book.title}" by</p>
           <p>${book.author}</p>
-          </div>
           <button class="remove-book">Remove</button>
+          </div>
+          
         `;
         bookElement.innerHTML = bookElMarkup;
         booksContainer.appendChild(bookElement);
@@ -34,7 +34,7 @@ class Book {
   addBook = () => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const { title, author } = this
+      const { title, author } = this;
       if (title.value !== '' && author.value !== '') {
         const book = {
           id: new Date().getTime(),
@@ -47,22 +47,23 @@ class Book {
         bookElement.setAttribute('id', book.id);
         const bookElMarkup = `
         <div class="content-container">
-        <p>${book.title}</p>
+        <p>"${book.title}" by </p>
         <p>${book.author}</p>
-        </div>
         <button class="remove-book">Remove</button>
+        </div>
+        
       `;
         bookElement.innerHTML = bookElMarkup;
         booksContainer.appendChild(bookElement);
         inputTitle.value = '';
         inputAuthor.value = '';
-      } 
+      }
     });
   }
 
   deleteBook = (id) => {
-    let books =  this.books.filter((book) => book.id !== parseInt(id));
-    let data = JSON.stringify(books)
+    const books = this.books.filter((book) => book.id !== parseInt(id, 2));
+    const data = JSON.stringify(books);
     localStorage.setItem('books', data);
     document.getElementById(id).remove();
   }
@@ -71,19 +72,15 @@ class Book {
     booksContainer.addEventListener('click', (e) => {
       if (e.target.classList.contains('remove-book') || e.target.parentElement.classList.contains('remove-book')) {
         const bookId = e.target.closest('li').id;
-        console.log("BOOKID", bookId)
+        console.log('BOOKID', bookId);
         this.deleteBook(bookId);
       }
     });
   }
-
 }
-
-
 
 const newBook = new Book(inputTitle, inputAuthor);
 
 newBook.getBooks();
 newBook.addBook();
 newBook.removeBook();
-
