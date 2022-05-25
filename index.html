@@ -8,14 +8,24 @@
     <title>Awesome Books</title>
 </head>
 <body>
+    <header>
+        <nav>
+            <div class="navbrand"><a href="">Awesome Books</a></div>
+            <ul class="nav-links">
+                <li class="nav-item" id="list"><a href="">List</a></li>
+                <li class="nav-item" id="add"><a href="">Add new</a></li>
+                <li class="nav-item" id="contact"><a href="">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
     <main>
-        <section class="books-container">
+        <section class="books-container" id="list-container">
             <div>
                 <h1>Awesome Books</h1>
                 <ul id="books-inner-container"></ul>
             </div>
         </section>
-        <section class="form-container">
+        <section class="form-container" id="add-container">
             <h3>Add a new book</h3>
             <form id="form">
                 <input type="text" placeholder="Title" id="input-title" name="input-title"/> <br />
@@ -23,6 +33,19 @@
                 <button type="submit" id="add-btn" class="add-button">Add</button>
             </form>
         </section>
+        <section id="contact-container">
+            <h2>Contact Information</h2>
+            <p>Do you have any question or you just want to say "Hello"?</p>
+            <p>You can reach out to us!</p>
+            <ul>
+                <li>Our email:</li>
+                <li>Our phone number:</li>
+                <li>Our address:</li>
+            </ul>
+        </section>
+        <footer>
+            <p>Copyright</p>
+        </footer>
     </main>
     <script src="index.js"></script>
 </body>
