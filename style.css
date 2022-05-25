@@ -6,6 +6,45 @@ ul {
   list-style: none;
 }
 
+.books-container {
+  width: 50%;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.books-container li {
+  margin-left: -40px;
+}
+
+.content-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+}
+
+li:nth-child(odd) {
+  background-color: lightslategrey;
+  left: 0;
+}
+
+button {
+  width: 80px;
+  height: 35px;
+  margin: 4px;
+  border: 2px solid black;
+  box-shadow: 2px 2px;
+}
+
 input[type="text"] {
   margin: 6px;
+  width: 30%;
+  padding: 12px;
+}
+
+.form-container {
+  margin: 3% 15%;
 }
