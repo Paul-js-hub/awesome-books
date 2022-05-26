@@ -1,53 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Awesome Books</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <nav>
-            <div class="navbrand"><a href="">Awesome Books</a></div>
-            <ul class="nav-links">
-                <li class="nav-item" id="list"><a href="#">List</a></li>
-                <li class="nav-item" id="add"><a href="#">Add new</a></li>
-                <li class="nav-item" id="contact"><a href="#">Contact</a></li>
-            </ul>
-        </nav>
+      <nav>
+        <div class="navbrand"><a href="">Awesome Books</a></div>
+        <ul class="nav-links">
+          <li class="nav-item" id="list"><a href="#">List</a></li>
+          <li class="nav-item" id="add"><a href="#">Add new</a></li>
+          <li class="nav-item" id="contact"><a href="#">Contact</a></li>
+        </ul>
+      </nav>
     </header>
     <main>
-        <div id="date" class="date"></div>	
-        <section class="books-container none" id="list-container">
-            <div>
-                <h1>Awesome Books</h1>
-                <ul id="books-inner-container"></ul>
-            </div>
-        </section>
-        <section class="form-container" id="add-container">
-            <h3>Add a new book</h3>
-            <form id="form">
-                <input type="text" placeholder="Title" id="input-title" name="input-title"/> <br />
-                <input type="text" placeholder="Author" id="input-author" name="input-author"/> <br />
-                <button type="submit" id="add-btn" class="add-button">Add</button>
-            </form>
-        </section>
-        <section id="contact-container" class="none">
-            <h2>Contact Information</h2>
-            <p>Do you have any question or you just want to say "Hello"?</p>
-            <p>You can reach out to us!</p>
-            <ul>
-                <li>Our email:</li>
-                <li>Our phone number:</li>
-                <li>Our address:</li>
-            </ul>
-        </section>
-        <footer>
-            <p>Copyright</p>
-        </footer>
+      <div id="date" class="date"></div>
+      <section class="books-container none" id="list-container">
+        <div>
+          <h1>Awesome Books</h1>
+          <ul id="books-inner-container"></ul>
+        </div>
+      </section>
+      <section class="form-container" id="add-container">
+        <h3>Add a new book</h3>
+        <form id="form">
+          <input
+            type="text"
+            placeholder="Title"
+            id="input-title"
+            name="input-title"
+          />
+          <br />
+          <input
+            type="text"
+            placeholder="Author"
+            id="input-author"
+            name="input-author"
+          />
+          <br />
+          <button type="submit" id="add-btn" class="add-button">Add</button>
+        </form>
+      </section>
+      <section id="contact-container" class="none">
+        <h2>Contact Information</h2>
+        <p>Do you have any question or you just want to say "Hello"?</p>
+        <p>You can reach out to us!</p>
+        <ul>
+          <li>Our email:</li>
+          <li>Our phone number:</li>
+          <li>Our address:</li>
+        </ul>
+      </section>
+      <footer>
+        <p>Copyright</p>
+      </footer>
     </main>
     <script src="index.js"></script>
-</body>
+  </body>
 </html>
