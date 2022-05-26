@@ -62,8 +62,8 @@ class Book {
         inputTitle.value = '';
         inputAuthor.value = '';
         listContainer.classList.remove('none');
-  addContainer.classList.add('none');
-  contactContainer.classList.add('none');
+        addContainer.classList.add('none');
+        contactContainer.classList.add('none');
       }
     });
   };
@@ -88,20 +88,19 @@ newBook.getBooks();
 newBook.addBook();
 newBook.deleteBook();
 
-
-function toListContainer(){
+function toListContainer() {
   listContainer.classList.remove('none');
   addContainer.classList.add('none');
   contactContainer.classList.add('none');
 }
 
-function toAddContainer(){
+function toAddContainer() {
   listContainer.classList.add('none');
   addContainer.classList.remove('none');
   contactContainer.classList.add('none');
 }
 
-function toContactContainer(){
+function toContactContainer() {
   listContainer.classList.add('none');
   addContainer.classList.add('none');
   contactContainer.classList.remove('none');
@@ -116,8 +115,8 @@ goToListContainer.addEventListener('click', toListContainer);
 goToAddContainer.addEventListener('click', toAddContainer);
 goToContactContainer.addEventListener('click', toContactContainer);
 
-function displayDate(){
-  let date = new Date();
+function displayDate() {
+  const date = new Date();
   return date;
 }
 
