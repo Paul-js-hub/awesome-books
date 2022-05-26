@@ -4,10 +4,41 @@
 
 ul {
   list-style: none;
+  text-decoration: none;
+}
+
+ul,
+li a {
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid #000;
+  border-radius: 4px;
+  align-items: center;
+  height: 50px;
+}
+
+.navbrand a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 600;
+  font-size: 14px;
+  margin: 10px;
+}
+
+.nav-links {
+  display: flex;
+}
+
+.nav-item {
+  margin: 5px;
+  padding: 0;
 }
 
 .books-container {
-  width: 50%;
   border: 2px solid black;
   border-radius: 10px;
 }
@@ -26,7 +57,7 @@ h1 {
   justify-content: center;
 }
 
-li:nth-child(odd) {
+.books-container li:nth-child(odd) {
   background-color: lightslategrey;
   left: 0;
 }
@@ -47,4 +78,21 @@ input[type="text"] {
 
 .form-container {
   margin: 3% 15%;
+}
+
+footer p {
+  border: 2px solid #000;
+  margin: 10% 0;
+  padding: 12px;
+}
+
+.none {
+  display: none;
+}
+
+.date {
+  display: flex;
+  justify-content: flex-end;
+  color: #000;
+  font-weight: 600;
 }
