@@ -12,14 +12,15 @@
         <nav>
             <div class="navbrand"><a href="">Awesome Books</a></div>
             <ul class="nav-links">
-                <li class="nav-item" id="list"><a href="">List</a></li>
-                <li class="nav-item" id="add"><a href="">Add new</a></li>
-                <li class="nav-item" id="contact"><a href="">Contact</a></li>
+                <li class="nav-item" id="list"><a href="#">List</a></li>
+                <li class="nav-item" id="add"><a href="#">Add new</a></li>
+                <li class="nav-item" id="contact"><a href="#">Contact</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <section class="books-container" id="list-container">
+        <div id="date"></div>	
+        <section class="books-container none" id="list-container">
             <div>
                 <h1>Awesome Books</h1>
                 <ul id="books-inner-container"></ul>
@@ -33,7 +34,7 @@
                 <button type="submit" id="add-btn" class="add-button">Add</button>
             </form>
         </section>
-        <section id="contact-container">
+        <section id="contact-container" class="none">
             <h2>Contact Information</h2>
             <p>Do you have any question or you just want to say "Hello"?</p>
             <p>You can reach out to us!</p>

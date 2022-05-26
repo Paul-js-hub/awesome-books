@@ -87,3 +87,7 @@ footer p {
   margin: 10% 0;
   padding: 12px;
 }
+
+.none {
+  display: none;
+}
